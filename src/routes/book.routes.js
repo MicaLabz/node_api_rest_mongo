@@ -1,10 +1,10 @@
-const express = require('express')
+import express from 'express' ;
+import Book from '../models/book.model.js';
+
 const router = express.Router()
-const Book = require('../models/book.model');
-const res = require('express/lib/response');
 
 //MIDDLEWARE
-const getBook = async (req, res, next) => {
+export const getBook = async (req, res, next) => {
     let book;
     const {id} = req.params;
 
@@ -124,4 +124,4 @@ router.delete('/:id', getBook, async(req,res) => {
 })
 
 
-module.exports = router
+export default router
